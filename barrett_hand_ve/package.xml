@@ -1,0 +1,42 @@
+<package>
+  <name>barrett_hand_ve</name>
+  <version>0.1.1</version>
+  <license>BSD</license>
+  <maintainer email="dawid.seredynski@gmail.com">Dawid Seredynski</maintainer>
+  <description>
+    barrett_hand_ve
+  </description>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!-- Build deps are queried automatically with orocos_use_package() -->
+  <build_depend>rtt</build_depend>
+  <build_depend>ocl</build_depend>
+  <build_depend>rtt_ros</build_depend>
+  <build_depend>rtt_rosclock</build_depend>
+  <build_depend>barrett_hand_cs_ve_msgs</build_depend>
+  <build_depend>common_interfaces</build_depend>
+  <build_depend>common_behavior</build_depend>
+  <build_depend>eigen_conversions</build_depend>
+  <build_depend>rtt_barrett_hand_cs_ve_subsystem_ports</build_depend>
+  <build_depend>rtt_velma_core_cs_ve_body_subsystem_ports</build_depend>
+  <build_depend>rtt_subsystem_ports</build_depend>
+  <build_depend>controller_common</build_depend>
+
+  <run_depend>rtt</run_depend>
+  <run_depend>ocl</run_depend>
+  <run_depend>rtt_ros</run_depend>
+  <run_depend>barrett_hand_cs_ve_msgs</run_depend>
+  <run_depend>rtt_barrett_hand_cs_ve_subsystem_ports</run_depend>
+  <run_depend>rtt_velma_core_cs_ve_body_subsystem_ports</run_depend>
+  <run_depend>subsystem_deployer</run_depend>
+
+  <export>
+    <rtt_ros>
+      <!-- Plugin deps are loaded automatically by the rtt_ros import service -->
+      <plugin_depend>velma_data_conversions</plugin_depend>
+      <plugin_depend>rtt_barrett_hand_cs_ve_subsystem_ports</plugin_depend>
+      <plugin_depend>rtt_velma_core_cs_ve_body_subsystem_ports</plugin_depend>
+    </rtt_ros>
+  </export>
+</package>

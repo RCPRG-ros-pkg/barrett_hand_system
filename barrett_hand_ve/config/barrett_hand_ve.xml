@@ -1,0 +1,37 @@
+<subsystem_configuration>
+    <import package="controller_common" />
+    <import package="rtt_geometry_msgs" />
+    <import package="rtt_barrett_hand_cs_ve_msgs" />
+    <import package="rtt_barrett_hand_cs_ve_subsystem_ports" />
+    <import package="rtt_velma_core_cs_ve_body_msgs" />
+    <import package="rtt_velma_core_cs_ve_body_subsystem_ports" />
+    <import package="eigen_typekit" />
+    <import package="rtt_std_msgs" />
+    <import package="port_operations" />
+    <import package="rtt_control_msgs" />
+    <import package="rtt_std_msgs" />
+    <import package="rtt_tf" />
+    <import package="barrett_hand_controller" />
+    <import package="sockets_can_queue" />
+
+    <component name="hand" type="BarrettHand" >
+        <service name="can_queue" />
+    </component>
+
+    <io_buffer alias="hi_st" name="barrett_hand_cs_ve_msgs_Status" />
+    <io_buffer alias="hi_cmd" name="barrett_hand_cs_ve_msgs_Command" />
+
+    <ros_stream port="master_component.hi_cmd_OUTPORT"  topic="/barrett_hand_ve/hi_cmd" />
+    <ros_stream port="hi_stConcate.msg_OUTPORT"         topic="/barrett_hand_ve/hi_st" />
+
+    <connection from="hand.q_OUTPORT"                   to="hi_stConcate.hand_q_INPORT" />
+    <connection from="hand.status_OUTPORT"              to="hi_stConcate.hand_s_INPORT" />
+
+    <connection from="hi_cmdSplit.hand_q_OUTPORT"      to="hand.q_INPORT" />
+    <connection from="hi_cmdSplit.hand_dq_OUTPORT"     to="hand.v_INPORT" />
+    <connection from="hi_cmdSplit.hand_max_i_OUTPORT"  to="hand.t_INPORT" />
+    <connection from="hi_cmdSplit.hand_max_p_OUTPORT"  to="hand.mp_INPORT" />
+    <connection from="hi_cmdSplit.hand_hold_OUTPORT"   to="hand.hold_INPORT" />
+    <connection from="hi_cmdSplit.handReset_OUTPORT"   to="hand.reset_INPORT" />
+
+</subsystem_configuration>

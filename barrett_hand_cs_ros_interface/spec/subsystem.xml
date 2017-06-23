@@ -1,0 +1,31 @@
+<subsystem_definition>
+
+    <buffers>
+        <in alias="st"      type="barrett_hand_cs_ve_msgs::Status"     side="bottom"/>
+        <out alias="cmd"    type="barrett_hand_cs_ve_msgs::Command"    side="bottom"/>
+    </buffers>
+
+    <trigger_methods>
+        <period value="0.01"/>
+    </trigger_methods>
+
+    <predicates>
+    </predicates>
+
+    <behaviors>
+        <behavior name="normal"
+            stop_cond="FALSE"
+            err_cond="FALSE" >
+            <running_component name="Y" />
+        </behavior>
+    </behaviors>
+
+    <states initial="normal">
+        <state name="normal">
+            <behavior name="normal" />
+        </state>
+    </states>
+
+    <simulation use_ros_sim_clock="false" use_sim_clock="false" />
+
+</subsystem_definition>

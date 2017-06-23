@@ -1,0 +1,34 @@
+<subsystem_definition>
+
+    <buffers>
+        <in alias="hi_cmd"          type="barrett_hand_cs_ve_msgs::Command"  side="top"/>
+        <out alias="hi_st"          type="barrett_hand_cs_ve_msgs::Status"   side="top"/>
+    </buffers>
+
+    <trigger_methods>
+<!--        <new_data_on_buffer name="hi_cmd" min="0.001" />
+        <no_data_on_buffer name="hi_cmd" first_timeout="0.0012" next_timeout="0.001" first_timeout_sim="1.0" />-->
+        <period value="0.001"/>
+    </trigger_methods>
+
+    <predicates>
+    </predicates>
+
+    <behaviors>
+        <behavior name="normal"
+            stop_cond="FALSE"
+            err_cond="FALSE" >
+            <running_component name="hand" />
+            <running_component name="Y" />
+        </behavior>
+    </behaviors>
+
+    <states initial="normal">
+        <state name="normal">
+            <behavior name="normal" />
+        </state>
+    </states>
+
+    <simulation use_ros_sim_clock="false" use_sim_clock="false" />
+
+</subsystem_definition>

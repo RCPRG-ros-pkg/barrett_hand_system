@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="LOG_LEVEL" default="Info"/>
+  <arg name="debug" default="false"/>
+
+  <arg unless="$(arg debug)" name="LAUNCH_PREFIX" value=""/>
+  <arg     if="$(arg debug)" name="LAUNCH_PREFIX" value="gdb -ex run --args "/>
+
+  <!-- Orocos target (gnulinux, xenomai, etc) -->
+<!--  <arg name="OROCOS_TARGET" default="$(optenv OROCOS_TARGET)"/>-->
+  <!-- Path to look for dynamically-loaded plugins and components (something like /lib/orocos) -->
+<!--  <arg name="RTT_COMPONENT_PATH" default="$(env RTT_COMPONENT_PATH)"/>-->
+
+  <node
+    launch-prefix="$(arg LAUNCH_PREFIX)"
+    name="barrett_hand_ve"
+    pkg="subsystem_deployer" type="deployer"
+    args="--DeployerName barrett_hand_ve -l $(arg LOG_LEVEL) -x $(find barrett_hand_ve)/config/barrett_hand_ve.xml -m barrett_hand_ve --" output="screen">
+<!--    <env name="OROCOS_TARGET" value="$(arg OROCOS_TARGET)"/>
+    <env name="RTT_COMPONENT_PATH" value="$(arg RTT_COMPONENT_PATH)"/>-->
+<!--    <env name="LD_PRELOAD" value="libmalloc_hook.so" />-->
+  </node>
+
+  <param name="/use_sim_time" value="false"/>
+
+  <!-- upload robot description -->
+  <param name="/robot_description"
+    command="$(find xacro)/xacro.py '$(find barrett_hand_defs)/robots/barrett_hand.urdf.xml'" />
+
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="rob_st_pub" >
+    <param name="use_tf_static" value="false"/>
+  </node>
+
+  <group ns="barrett_hand_ve">
+    <rosparam>
+      hand:
+        device_name: can0
+        prefix: right
+        can_id_base: 11
+    </rosparam>
+  </group>
+
+</launch>
