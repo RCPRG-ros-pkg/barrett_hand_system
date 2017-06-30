@@ -5,7 +5,7 @@ project(barrett_hand_ve)
 # Find the RTT-ROS package (this transitively includes the Orocos CMake macros)
 find_package(catkin REQUIRED COMPONENTS
   rtt_ros
-  rtt_subsystem_ports
+  rtt_subsystem
   barrett_hand_cs_ve_msgs
   eigen_conversions
   common_interfaces
