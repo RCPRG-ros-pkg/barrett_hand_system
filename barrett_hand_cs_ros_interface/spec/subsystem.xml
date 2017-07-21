@@ -5,9 +5,11 @@
         <out alias="cmd"    type="barrett_hand_cs_ve_msgs::Command"    side="bottom"/>
     </buffers>
 
-    <trigger_methods>
-        <period value="0.01"/>
-    </trigger_methods>
+    <buffer_groups>
+        <buffer_group name="status" >
+            <obligatory name="st" />
+        </buffer_group>
+    </buffer_groups>
 
     <predicates>
     </predicates>
@@ -23,6 +25,7 @@
     <states initial="normal">
         <state name="normal">
             <behavior name="normal" />
+            <buffer_group name="status" min_period="0.01" first_timeout="0" next_timeout="0" first_timeout_sim="0" />
         </state>
     </states>
 

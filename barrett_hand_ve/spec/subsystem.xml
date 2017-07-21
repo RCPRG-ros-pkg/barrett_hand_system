@@ -5,11 +5,11 @@
         <out alias="hi_st"          type="barrett_hand_cs_ve_msgs::Status"   side="top"/>
     </buffers>
 
-    <trigger_methods>
-<!--        <new_data_on_buffer name="hi_cmd" min="0.001" />
-        <no_data_on_buffer name="hi_cmd" first_timeout="0.0012" next_timeout="0.001" first_timeout_sim="1.0" />-->
-        <period value="0.001"/>
-    </trigger_methods>
+    <buffer_groups>
+        <buffer_group name="command" >
+            <optional name="hi_cmd" />
+        </buffer_group>
+    </buffer_groups>
 
     <predicates>
     </predicates>
@@ -26,6 +26,7 @@
     <states initial="normal">
         <state name="normal">
             <behavior name="normal" />
+            <buffer_group name="command" min_period="0.001" first_timeout="0" next_timeout="0" first_timeout_sim="0" />
         </state>
     </states>
 
