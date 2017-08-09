@@ -18,8 +18,8 @@
   <build_depend>common_interfaces</build_depend>
   <build_depend>common_behavior</build_depend>
   <build_depend>eigen_conversions</build_depend>
-  <build_depend>rtt_barrett_hand_cs_ve_subsystem_ports</build_depend>
-  <build_depend>rtt_velma_core_cs_ve_body_subsystem_ports</build_depend>
+  <build_depend>rtt_barrett_hand_cs_ve_subsystem_buffers</build_depend>
+  <build_depend>rtt_velma_core_cs_ve_body_subsystem_buffers</build_depend>
   <build_depend>rtt_subsystem</build_depend>
   <build_depend>controller_common</build_depend>
 
@@ -27,16 +27,16 @@
   <run_depend>ocl</run_depend>
   <run_depend>rtt_ros</run_depend>
   <run_depend>barrett_hand_cs_ve_msgs</run_depend>
-  <run_depend>rtt_barrett_hand_cs_ve_subsystem_ports</run_depend>
-  <run_depend>rtt_velma_core_cs_ve_body_subsystem_ports</run_depend>
+  <run_depend>rtt_barrett_hand_cs_ve_subsystem_buffers</run_depend>
+  <run_depend>rtt_velma_core_cs_ve_body_subsystem_buffers</run_depend>
   <run_depend>subsystem_deployer</run_depend>
 
   <export>
     <rtt_ros>
       <!-- Plugin deps are loaded automatically by the rtt_ros import service -->
       <plugin_depend>velma_data_conversions</plugin_depend>
-      <plugin_depend>rtt_barrett_hand_cs_ve_subsystem_ports</plugin_depend>
-      <plugin_depend>rtt_velma_core_cs_ve_body_subsystem_ports</plugin_depend>
+      <plugin_depend>rtt_barrett_hand_cs_ve_subsystem_buffers</plugin_depend>
+      <plugin_depend>rtt_velma_core_cs_ve_body_subsystem_buffers</plugin_depend>
     </rtt_ros>
   </export>
 </package>
