@@ -9,7 +9,7 @@ find_package(catkin REQUIRED COMPONENTS
   barrett_hand_cs_ve_msgs
   eigen_conversions
   common_interfaces
-  common_behavior
+  subsystem_common
   controller_common
   lwr_msgs
   velma_ec_gen_msgs
