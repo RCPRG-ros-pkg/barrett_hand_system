@@ -14,7 +14,7 @@ find_package(catkin REQUIRED COMPONENTS
   common_interfaces
   subsystem_common
   controller_common
-  planner
+  rcprg_planner
   )
 
 find_package(OROCOS-RTT REQUIRED COMPONENTS rtt-scripting rtt-transport-corba)
