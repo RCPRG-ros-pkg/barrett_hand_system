@@ -15,8 +15,7 @@ find_package(catkin REQUIRED COMPONENTS
   velma_ec_gen_msgs
   )
 
-find_package(OROCOS-RTT REQUIRED COMPONENTS rtt-scripting rtt-transport-corba)
-include(${OROCOS-RTT_USE_FILE_PATH}/UseOROCOS-RTT.cmake )
+find_package(OROCOS-RTT REQUIRED COMPONENTS rtt-scripting)
 
 find_package(Eigen3 REQUIRED)
 
