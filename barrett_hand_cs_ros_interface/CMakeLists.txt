@@ -8,6 +8,7 @@ set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake/" ${CMAKE_MODULE_PATH})
 find_package(catkin REQUIRED COMPONENTS
   rtt_ros
   rtt_subsystem
+  rtt_rosparam
   barrett_hand_cs_ve_msgs
   eigen_conversions
   rtt_actionlib
